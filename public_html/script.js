@@ -5,15 +5,9 @@ const app = new Vue({
 	},
 	created () {
 		fetch('https://legal-consult.online/blya/api/test/')
-		.then(function(response) {
-			alert(response.headers.get('Content-Type')); 
-			alert(response.status); 
-			
-			return response.json();
+		.then (response => response.posts) // эй! ту-то response.json() оставь!) ты к ответу распрасивалку json применяешь тут!)
+		.then (json => {
+			this.posts = json.posts
 		})
-		.then(function(posts) {
-			alert(posts);//запилил такой код, выдает TypeError: Failed to fetch
-		})
-		.catch(alert);
 	}
 })
