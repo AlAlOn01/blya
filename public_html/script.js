@@ -5,9 +5,9 @@ const app = new Vue({
 	},
 	created () {
 		fetch('https://legal-consult.online/blya/api/test/')
-		.then (response => response.posts) // эй! ту-то response.json() оставь!) ты к ответу распрасивалку json применяешь тут!)
-		.then (json => {
-			this.posts = json.posts
-		})
+		.then (response => response.json()) // эй! ту-то response.json() оставь!) ты к ответу распрасивалку json применяешь тут!)
+  		.then (json => {
+  			this.posts = response.posts;
+  		});
 	}
 })
